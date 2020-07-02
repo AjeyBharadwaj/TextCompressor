@@ -1,0 +1,618 @@
+tar zxvf fileNameHere.tgz
+tar -xvf file.tar
+
+Classic-XR :
+    Commands : acme pull -devline ci-432/ci-432.lu%CI-432_NIGHTLY_13_06_13A
+               PATH=/usr/cisco/bin:/router/bin:/sw/packages/ccache/2.3.4/bin:/opt/teambuilder/bin:/usr/atria/bin:/usr/cisco/etc:$PATH
+               unset $LD_LIBRARY_PATH
+               time ljam -r -sPROJECT=router.jam ; date
+               llaunch -a -m
+          
+Classic-XR :
+    Pulling   : acme nw -lineup r43x.lu
+                acme pull -lu r51x.lu%EFR-00000281508
+                
+                /usr/cisco/bin/acme nw -lineup ci-513.lu -src all
+                
+                r5112-google EFR-00000273251
+                
+                acme nw -lineup bnb-531-blr-pi.lu%EFR-00000291734 -src all
+                acme nw -lineup ci-532.lu%EFR-00000309085 -src all
+                
+                acme nw -lineup bnb-531-blr-pi.lu%EFR-00000296083 -src all
+                
+                acme nw -lineup r5112-google.lu%EFR-00000273251 -src all
+                acme nw -lineup ncs6k-otnoptics.lu%EFR-00000279464 -src all
+                
+                acme nw -lineup ci-522-bnb-blr-pi%EFR-00000279921 -src all
+                acme nw -lineup r43x.lu%EFR-00000256136 -src all
+                acme nw -lineup ci-530.lu%EFR-00000292695 -src all
+                
+                acme nw -lineup bnb-531-asr9k.lu%EFR-00000295007 -src all
+                
+                acme nw -lineup bnb-531-blr-pi.lu%EFR-00000295175 -src all
+                
+                acme nw -lineup r41x%EFR-00000176332 -src all
+                
+                acme nw -lineup ci-531.lu%EFR-00000297074 -src all
+                
+                acme nw -lineup sjc-522-pi-bnb.lu%EFR-00000286342 -src all
+                
+                ci-513%EFR-00000278250
+                
+                acme nw -lineup r52x.lu%EFR-00000295517 -src all
+                acme nw -lineup r51x.lu%EFR-00000284294 -src all
+                
+                acme nw -lineup r53x.lu%EFR-00000294151 -src all
+                
+                acme nw -lineup ci-521-bugfix.lu -src all
+                acme nw -lineup ci-522-bnb-blr-pi -src all
+    Compiling : ljam -r -sPROJECT=router.jam
+                /auto/iox/bin/xr_bld -plat asr9k-p -jam_opt "-j12" -to ajbharad
+                jam -l -d2 -j8 asr9k-mini-p.vm
+                Single Jam command : jam -l -plat hfr-px -bundle  lib_ui lib/ui/pie
+    Launching : llaunch -a -m
+
+NG-XR : 
+    Pulling   : acme nw -lineup blr-521-pi-bnb
+                acme nw -src all -lu blr-520-pi-bnb.lu%EFR-00000260416
+                acme nw -src all -lu blr-520-pi-bnb.lu%EFR-00000259371
+                acme nw -src all -lu blr-521-pi-bnb.lu%EFR-00000271767    
+                acme nw -src all -lu blr-521-pi-bnb.lu%EFR-00000273333
+                acme nw -lineup pd-521-bnb-throttle.lu -src all
+                
+                acme nw -src all -lu ci-521.lu%EFR-00000281090
+                acme nw -src all -lu pd-521-bnb.lu%EFR-00000278929
+                acme nw -src all -lu pd-521-bnb.lu%EFR-00000281761
+                acme nw -src all -lu ci-523.lu%EFR-00000281382
+                acme nw -src all -lu r52x.lu%EFR-00000283029
+                acme nw -src all -lu r52x.lu%EFR-00000283029
+                
+                acme nw -src all -lu bnb-523-infra.lu%EFR-00000284579 
+                acme nw -src all -lu bnb-523-infra.lu%EFR-00000285868    
+                acme nw -src all -lu bnb-523-infra.lu%EFR-00000286222  
+
+                acme nw -src all -lu bnb-523-infra.lu%EFR-00000288192 
+                
+                acme nw -src all -lu bnb-531-blr-pi.lu%EFR-00000298435       
+              
+                acme nw -src all -lu bnb-523-scapa.lu%EFR-00000291886
+                
+                acme nw -src all -lu bnb-523-scapa-la.lu%EFR-00000295535
+                
+                acme nw -src all -lu bnb-523-infra.lu%EFR-00000289808
+                acme nw -src all -lu bnb-523-infra.lu%EFR-00000290078
+                
+                acme nw -src all -lu ci.431.lu%EFR-00000260113
+                
+                acme nw -src all -lu ci-523-dt-prod.lu%EFR-00000286362    
+                acme nw -src all -lu ci-523.lu%EFR-00000298820 -src all   
+                
+                acme nw -src all -lu ci-523-dt-prod.lu%EFR-00000288990   
+                acme nw -src all -lu ci-523.lu%EFR-00000288510   
+                
+                acme nw -src all -lu ci-531.lu%EFR-00000295651
+                
+                acme nw -src all -lu bnb-531-blr-pi.lu
+                
+                acme nw -src all -lu r50x.lu%EFR-00000260300   
+                acme nw -src all -lu scapa-twig.lu%EFR-00000264642                    
+    Compiling : jam -l -plat ncs6k linux/os/pkg
+                jam -l -j10 -platform=ncs6k shellutil/pie
+                jam -l -j10 -platform=ncs6k infra/pie
+                /router/bin/jam -notb -sPROCNTO_SPIRIT=y ncs6k-mini-x.iso ncs6k-full-x.iso ncs6k-mpls.pkg ncs6k-mcast.pkg ncs6k-mgbl.pkg
+                /auto/iox/bin/xr_bld -mini -plat ncs6k
+    Copy      : scp 173.39.51.147:/nobackup/ajbharad/CSCux76668_Latest_Xr_Dev/img-ncs6k/ncs6k-mini-x.iso .
+    Copy      : scp ajbharad@64.103.223.65:/nobackup/arunprab/ajbharad/Commit_CHVRF/img-ncs6k/ncs6k-mini-x.iso .
+                scp 173.39.51.147:/nobackup/ajbharad/CSCun01463_COPY_SCP_Wokring_EFR/img-ncs4k/ncs4k-mini-x.iso .
+    Sim       : /nobackup/ajbharad/NO_CHVRF/ncs6k-mini-x.iso
+                /nobackup/ajbharad/NO_CHVRF/ncs4k-mini-x.iso
+    
+NG-CALVADOS :
+    Pulling   : acme nw -lineup mc-cal-bnb
+    Compiling : ./calvados/build/make-lib/xrmk clean;./calvados/build/make-lib/xrmk prepare;./calvados/build/make-lib/xrmk all;/auto/cats3/build_vspirit/new/195/patch_calvados.sh;./calvados/build/make-lib/xrmk sdk;
+                ./calvados/build/make-lib/xrmk calvados/shared_pkg/common/nto/misc/all BUILD_PLATFORM="ncs6k-sysadmin"
+                `./calvados/build/make-lib/xrmk clean BUILD_PLATFORM="ncs6k-sysadmin";./calvados/build/make-lib/xrmk prepare BUILD_PLATFORM="ncs6k-sysadmin";./calvados/build/make-lib/xrmk all BUILD_PLATFORM="ncs6k-sysadmin";/auto/cats3/build_vspirit/new/195/patch_calvados.sh BUILD_PLATFORM="ncs6k-sysadmin";./calvados/build/make-lib/xrmk ncs6k-sdk BUILD_PLATFORM="ncs6k-sysadmin"` 1> Result 2>&1;
+                `./calvados/build/make-lib/xrmk clean BUILD_PLATFORM="ncs6k-sysadmin";./calvados/build/make-lib/xrmk prepare BUILD_PLATFORM="ncs6k-sysadmin";./calvados/build/make-lib/xrmk all BUILD_PLATFORM="ncs6k-sysadmin" 1> Result 2>&1;
+                ./calvados/build/make-lib/xrmk clean BUILD_PLATFORM="ncs6k-sysadmin";
+                ./calvados/build/make-lib/xrmk prepare BUILD_PLATFORM="ncs6k-sysadmin";
+                ./calvados/build/make-lib/xrmk all BUILD_PLATFORM="ncs6k-sysadmin";
+                /auto/cats3/build_vspirit/new/195/patch_calvados.sh BUILD_PLATFORM="ncs6k-sysadmin";
+                ./calvados/build/make-lib/xrmk ncs6k-sdk BUILD_PLATFORM="ncs6k-sysadmin"
+    Copy      : scp 10.83.108.129:/nobackup/ajbharad/For_Committing/img-ncs6k/ncs6k-mini-x.iso .
+                scp 173.39.51.147:/auto/tftp-ott-users1/ajbharad/TFTP/ncs6k-mini-x.iso .
+    Sim       : /nobackup/ajbharad/Copy_Location_Scapa/ncs4k-mini-x.iso
+
+show install repository
+install prepare issu "ncs6k-xr-6.2.1.29I"
+install activate issu load
+install activate issu run
+install activate issu cleanup
+    
+install add source /misc/disk1/ ncs6k-mini-x.iso
+show install repository
+install extract  ncs6k-mini-x-6.2.1.10I
+install prepare issu "ncs6k-mini-x-6.2.1.10I"
+    
+show issu summary
+show install request    
+    
+/ws/ajaypat-sjc/xrng_gdb -p  thirdparty/opensource/sdk/x86_64/boot/vmlinux-3.10.19 -c default-sdr--2.20160622-155158.core.host.3_7.kdump     
+    
+/auto/ios-xr-tools/endian_analyze/endian_analyze.pl
+export ISSU_ANALYSIS_DISABLE="1"
+export PIMS_DISABLE_CSTATIC_TRIG=1
+/auto/iox/bin/xr_commit -d CSCvb71651 -cloud -mppb
+/auto/iox/bin/xr_commit -d CSCvc46501
+
+
+jam -j40 -l ncs6k-mini-x.iso
+ssh-agent /bin/bash
+ssh-add /users/ajbharad/.ssh/id_rsa 
+
+scp bgl-ads-1745://nobackup/ajbharad/XML_Speed/img-xrv9k/xrv9k-full-x.iso .; /auto/tftpboot-users-blr/imrankh3/sunstone.sh -i /nobackup/ajbharad/XML/xrv9k-full-x.iso -xterm -dev
+
+scp sjck-gold-24:/scratch/MPPB-ajbharad-xrv9k-13847/img-xrv9k/xrv9k-full-x.iso .; /auto/tftpboot-users-blr/imrankh3/sunstone.sh -i /nobackup/ajbharad/Rdsfs_File_Test/xrv9k-full-x.iso -xterm -dev
+
+scp  iox-lnx-032://san1/EFR/r60x_xrv9k/xrv9k-full-x.iso .
+
+/router/bin/jam -notb -sPROCNTO_SPIRIT=y ncs6k-mini-x.iso ncs6k-full-x.iso ncs6k-mpls.pkg ncs6k-mcast.pkg ncs6k-mgbl.pkg
+/router/bin/jam -notb -sPROCNTO_SPIRIT=y ncs4k-mini-x.iso ncs4k-full-x.iso ncs4k-mpls.pkg ncs4k-mcast.pkg ncs6k-mgbl.pkg
+
+smu jam -ddts CSCux60676 -plat asr9k-px -jamopts "-j18"
+smu jam -ddts CSCuu02307 -plat hfr-px -noprompt -jamopts "-j18"
+smu jam -ddts CSCux25392 -plat ncs6k -mini -jamopts "-j18"
+
+smu jam -ddts CSCuw58639 -plat ncs5500 -noprompt -jamopts "-j18"
+smu jam -ddts CSCvb30339 -plat ncs5500 -jamopts "-j18"
+    
+
+rm -rf temporary_diff ; rm -rf temporary_diff_temp; acme diff > temporary_diff  ; grep "Index:" -i temporary_diff | awk '{print $2}' > temporary_diff_temp ; acme revert -file temporary_diff_temp;
+
+rm -rf files; rm -rf cscope.* ; find . -name "*.[ch]" > files ; ctags -L cscope.files; cscope -ub -i cscope.files;
+
+{char buf[512]; FILE *fp = fopen("/a.txt", "a"); if (fp != NULL) {snprintf(buf, 512, "%s:%d File : %s\n", __FUNCTION__, __LINE__, name); fwrite(buf, strlen(buf), 1, fp); fclose(fp);}}
+
+/auto/iox/bin/xr_bld -plat asr9k-p -jam_opt "-j12" -to ajbharad; cp img-asr9k/asr9k-mini-p.vm /auto/tftp-blr-users1/ajbharad
+
+/auto/compiler-dev/gdb-7.2.1/bugfix/gdb-7.2.1.i386 infra/rdsfs/obj-x86_64-linux-spirit/rdsfs_svr.sym x86
+source /ws/sukaruna-sjc/offline/gdb_scripts/xr_rds_trace.py
+xr symbols load
+xr rds trace list
+set logging on
+xr rds trace list 
+xr rds trace show fatal
+xr rds trace show failure
+xr rds trace show init
+xr rds trace show misc
+xr rds trace show oper_clnt
+xr rds trace show oper_internal
+xr rds trace show tickets
+xr rds trace show tlv
+xr rds trace show transport
+set logging off
+
+
+mkdir For_Committing;
+cd For_Committing;
+acme nw -src all -lu bnb-523-infra.lu%EFR-00000281238;
+acme patch -i ../latest_diff.diff; 
+date ; time /auto/iox/bin/xr_bld -plat panini -jam_opt "-j12" -to ajbharad;
+date ; time /auto/iox/bin/xr_bld -plat asr9k-px -jam_opt "-j12" -to ajbharad;
+date ;scp img-ncs6k/ncs6k-mpls.pkg ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity ; 
+date ;scp img-ncs6k/ncs6k-mini-x.iso ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity; 
+date ;scp img-ncs6k/ncs6k-full-x.iso ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity; 
+date ;scp img-asr9k/asr9k-mini-px.vm ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity; 
+date ;scp img-asr9k/asr9k-mpls-px.pie ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity; 
+date ;scp img-asr9k/asr9k-mcast-px.pie ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity; 
+date ; time /auto/iox/bin/xr_bld -plat enxr -jam_opt "-j12" -to ajbharad; 
+date ; /auto/xrut/xrut-gold/enxr-xrut-combo.py; 
+date ; time /auto/iox/bin/xr_bld -plat c12k -jam_opt "-j12" -to ajbharad; 
+date ; time /auto/iox/bin/xr_bld -plat hfr-px -jam_opt "-j12"  -to ajbharad;
+
+#FOR mini_hfr
+date ;scp img-hfr/hfr-mini-px.vm ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity; 
+date ;scp img-hfr/hfr-mcast-px.pie ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity; 
+date ;scp img-hfr/hfr-mpls-px.pie ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity; 
+date ;scp img-hfr/hfr-mgbl-px.pie ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity; 
+
+#FOR mini_gsr
+date ;scp img-c12k/c12k-mini-px.vm ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity; 
+date ;scp img-c12k/c12k-mcast.pie ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity; 
+date ;scp img-c12k/c12k-mgbl.pie ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity; 
+date ;scp img-c12k/c12k-mpls.pie ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity;
+date ;scp img-c12k/mbiprp-rp.vm ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity;
+date ;scp img-c12k/mbiprp-drp.vm ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity;
+
+#FOR XRVR SANITY
+date ;time /auto/iox/bin/xr_bld -plat xrvr
+date; time /auto/xrut/xrut-gold/sanity/smoke-test.py --xrvr-image img-xrvr/xrvr-full-x.vm
+
+#For Scapa sanity
+/auto/iox/bin/xr_bld -plat scapa -jam_opt "-j12" -to ajbharad;
+date ;scp img-ncs4k/ncs4k-mini-x.iso ajbharad@bgl-ads-1745:/auto/tftp-ott-users1/ajbharad/Sanity;
+
+#FOR ci-522-bnb-blr-pi
+date ; time /auto/iox/bin/xr_bld -plat ncs6k -jam_opt "-j12" -to ajbharad;
+date ; time /auto/iox/bin/xr_bld -plat asr9k-px -jam_opt "-j12" -to ajbharad;
+date ; time /auto/iox/bin/xr_bld -plat scapa -jam_opt "-j12" -to ajbharad; 
+date ; time /auto/iox/bin/xr_bld -plat enxr -jam_opt "-j12" -to ajbharad; 
+date ; /auto/xrut/xrut-gold/enxr-xrut-combo.py; 
+
+grep "Index:" -i temporary_diff | awk '{print $2}' > temprorary_diff_temp ; acme revert -file temprorary_diff_temp;
+
+
+export HISTFILE="/nobackup/ajbharad/BashHistory/AJEY.txt" ; export HISTTIMEFORMAT="%F %T " 
+source /auto/edatools/oicad/tools/vxr_user/vxr_4062/setup.sh
+source /auto/edatools/oicad/tools/vxr_user/latest/setup.sh 
+source /auto/edatools/oicad/tools/vxr_user/vxr_4615/setup.sh
+source /auto/edatools/oicad/tools/vxr_user/vxr_4778/setup.sh
+source /auto/edatools/oicad/tools/vxr_user/alpha/setup.sh
+export DISPLAY="bgl-ads-1745:1"
+rm -rf ./*; cp ../sim-config.xml .;scp 173.39.51.147:/nobackup/ajbharad/Panini/img-ncs6k/ncs6k-mini-x.iso .; sim clean; sim --vda -t 0
+
+scp 173.39.51.147:/nobackup/ajbharad/CSCum14983-File-System-Removal/kvm-calvados-stage/kvm-install-xboard.iso .
+scp 173.39.51.147:/nobackup/ajbharad/Image_For_Sai/img-ncs6k/ncs6k-mini-x.iso .
+scp 173.39.51.147:/nobackup/ajbharad/CSCuy26792/img-ncs6k/ncs6k-mini-x.iso .
+scp 173.39.51.147:/nobackup/ajbharad/NGXR/img-ncs6k/ncs6k-mini-x.iso .
+scp 173.39.51.147:/nobackup/ajbharad/CSCux76668_XR_Dev/img-ncs6k/ncs6k-mini-x.iso .
+scp 173.39.51.147:/auto/ioxdepot4/r60x/all/nightly_image_dir/15.11.06C/img-ncs6k/ncs6k-mini-x.iso-R60X-15.11.06C ncs6k-mini-x.iso
+scp bgl-ads-1745:/nobackup/ajbharad/Sanity/XRForSanity/img-ncs6k/ncs6k-mini-x.iso .
+scp rtp-ads-189:/nobackup/ajbharad/Timezone/img-ncs6k/ncs6k-mini-x.iso .
+
+sim clean
+sim panini-rp
+vi sim
+
+
+
+/nobackup/nburte/ajbharad/Copy/kvm-install-xboard.iso
+/nobackup/ajbharad/CSCun50108_Audit_Trail/ncs6k-mini-x.iso
+
+alias myefr="/auto/iox/bin/xr_my_ws_efr"
+alias bldhfr='/auto/iox/bin/xr_bld -plat hfr-px -jam_opt "-j12"  -to ajbharad;'
+alias bldasr9kpx='/auto/iox/bin/xr_bld -plat asr9k-px -jam_opt "-j12" -to ajbharad;'
+alias bldasr9k='/auto/iox/bin/xr_bld -plat asr9k-p -jam_opt "-j12" -to ajbharad;'
+alias bldc12k='/auto/iox/bin/xr_bld -plat c12k -jam_opt "-j12" -to ajbharad;'
+alias bldenxr='/auto/iox/bin/xr_bld -plat enxr -jam_opt "-j12" -to ajbharad;'
+alias bldpiref='/auto/iox/bin/xr_bld -plat piref -jam_opt "-j12" -to ajbharad;'
+alias bldpanini='/auto/iox/bin/xr_bld -plat ncs6k -jam_opt "-j12" -to ajbharad;'
+alias bldpanini-mini='/auto/iox/bin/xr_bld -plat ncs6k -mini -jam_opt "-j12" -to ajbharad;'
+alias bldscapa='/auto/iox/bin/xr_bld -plat scapa -jam_opt "-j12" -to ajbharad;'
+alias bldexr='/auto/iox/bin/xr_bld -plat xrv9k -jam_opt "-j12" -to ajbharad;'
+/auto/iox/bin/xr_bld -plat asr9k-x64 -jam_opt "-j12"
+alias fretta='/auto/iox/bin/xr_bld -plat ncs5500 -jam_opt "-j12" -to ajbharad'
+date ;time /auto/iox/bin/xr_bld -plat xrvr
+/auto/iox/bin/xr_bld -plat enxr-spirit -jam_opt "-j12" -to ajbharad;
+
+time /router/bin/jam -notb -sPROCNTO_SPIRIT=y ncs4k-full-x.iso ncs4k-mini-x.iso ncs4k-mpls.pkg ncs4k-mcast.pkg ncs4k-mgbl.pkg
+
+/auto/xrut/xrut-gold/enxr-xrut-combo.py;
+
+/auto/iox/bin/xr_bld -plat ncs6k -jam_opt "-j12" -to ajbharad;/auto/iox/bin/xr_bld -plat scapa -jam_opt "-j12" -to ajbharad;
+
+/auto/iox/bin/xr_bld -plat scapa -jam_opt "-j12" -to ajbharad; /auto/iox/bin/xr_bld -plat enxr -jam_opt "-j12" -to ajbharad; /auto/xrut/xrut-gold/enxr-xrut-combo.py; /auto/iox/bin/xr_bld -plat asr9k-px -jam_opt "-j12" -to ajbharad;
+
+
+date ; time /auto/iox/bin/xr_bld -plat ncs6k -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat scapa -jam_opt "-j12" -to ajbharad; date
+
+/auto/iox/bin/xr_bld -plat c12k -jam_opt "-j12" -to ajbharad; /auto/iox/bin/xr_bld -plat panini -jam_opt "-j12" -to ajbharad; /auto/iox/bin/xr_bld -plat enxr -jam_opt "-j12" -to ajbharad
+acme nw -lu ci-522-bnb-blr-pi ; acme patch -i ../Chineses_ci_522_blr-pi.diff ; /auto/iox/bin/xr_bld -plat asr9k-px -jam_opt "-j12" -to ajbharad; /auto/iox/bin/xr_bld -plat panini -jam_opt "-j12" -to ajbharad; /auto/iox/bin/xr_bld -plat panini -mini -jam_opt "-j12" -to ajbharad; /auto/iox/bin/xr_bld -plat scapa -jam_opt "-j12" -to ajbharad; /auto/iox/bin/xr_bld -plat enxr -jam_opt "-j12" -to ajbharad; ljam -j4 -sPROJECT=router.jam regressions > ljam1 2>&1 ; /auto/xrut/xrut-gold/sanity/smoke-test.py > Smoke_Test 2>&1;
+
+date ; time /auto/iox/bin/xr_bld -plat asr9k-px -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat panini -jam_opt "-j12" -to ajbharad; date ; /auto/iox/bin/xr_bld -plat scapa -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat enxr -jam_opt "-j12" -to ajbharad; date ; /auto/xrut/xrut-gold/enxr-xrut-combo.py;
+
+acme nw -lu blr-521-pi-bnb; acme patch -i ../CSCuo47553_tftp_support.diff ; date ; time /auto/iox/bin/xr_bld -plat asr9k-px -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat panini -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat panini -mini -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat enxr -jam_opt "-j12" -to ajbharad; date ; time ljam -j4 -sPROJECT=router.jam regressions > ljam1 2>&1 ; date ; time /auto/xrut/xrut-gold/sanity/smoke-test.py > Smoke_Test 2>&1 ; date
+acme nw -lu blr-521-pi-bnb; acme patch -i ../CSCuo47553_tftp_support.diff ; date ; time /auto/iox/bin/xr_bld -plat asr9k-px -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat panini -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat panini -mini -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat enxr -jam_opt "-j12" -to ajbharad; date ; ljam -j4 -sPROJECT=router.jam regressions > ljam1 2>&1 ; ljam -j4 -sPROJECT=router.jam regressions > ljam2 2>&1 ; /auto/xrut/xrut-gold/sanity/smoke-test.py > Smoke_Test 2>&1
+acme nw -lu blr-521-pi-bnb; acme patch -i ../CSCuo25028_Hostname.diff ; date ; time /auto/iox/bin/xr_bld -plat panini -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat panini -mini -jam_opt "-j12" -to ajbharad; 
+
+acme nw -lu blr-521-pi-bnb; acme patch -i ../CSCuo47553_tftp_support.diff ; date ; time /auto/iox/bin/xr_bld -plat enxr -jam_opt "-j12" -to ajbharad; date ; ljam -j4 -sPROJECT=router.jam regressions > ljam1 2>&1 ; ljam -j4 -sPROJECT=router.jam regressions > ljam2 2>&1 ; /auto/xrut/xrut-gold/sanity/smoke-test.py > Smoke_Test 2>&1
+
+date ; time /auto/iox/bin/xr_bld -plat asr9k-px -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat panini -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat panini -mini -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat enxr -jam_opt "-j12" -to ajbharad; date ; ljam -j4 -sPROJECT=router.jam regressions > ljam1 2>&1 ; /auto/xrut/xrut-gold/sanity/smoke-test.py > Smoke_Test 2>&1
+
+acme nw -lu blr-521-pi-bnb; acme patch -i /auto/tftp-blr-users1/ajbharad/working_hostname_diff.diff ; date ; time /auto/iox/bin/xr_bld -plat asr9k-px -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat panini -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat panini -mini -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat enxr -jam_opt "-j12" -to ajbharad; date ;time ljam -j4 -sPROJECT=router.jam regressions > ljam1 ; date ; time /auto/xrut/xrut-gold/sanity/smoke-test.py > Smoke_Test
+
+date ; time /auto/iox/bin/xr_bld -plat asr9k-px -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat panini -jam_opt "-j12" -to ajbharad; date ; time /auto/iox/bin/xr_bld -plat panini -mini -jam_opt "-j12" -to ajbharad; ; date ; time /auto/iox/bin/xr_bld -plat enxr -jam_opt "-j12" -to ajbharad; date ; time ljam -j4 -sPROJECT=router.jam regressions > ljam1 2>&1 ; ljam -j4 -sPROJECT=router.jam regressions > ljam2 2>&1 ; /auto/xrut/xrut-gold/sanity/smoke-test.py > Smoke_Test 2>&1;
+
+ssh-keygen -t dsa
+cd /root
+chvrf -o scp ajbharad@173.39.51.147:~/.ssh/id_dsa.pub .ssh/id_dsa.pub.W
+cat .ssh/id_dsa.pub.W >> .ssh/authorized_keys
+rm -rf .ssh/id_dsa_pub.W
+chmod 600 .ssh/authorized_keys
+chmod 700 .ssh
+
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/Bundle_Manager_Issue/infra/rdsfs/obj-x86_64-linux-spirit/rdsfs_cli  /opt/cisco/XR/packages/iosxr-infra.rp-5.3.3.23I/bin/rdsfs_cli
+
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/Fan_Image/calvados/shared_pkg/common/nto/misc/bin-x86_64/shell_util /opt/cisco/./calvados/packages/ncs6k-sysadmin-shared.all-6.0.0.06I/bin/shell_util
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCun01463_COPY_SCP_Wokring_EFR/calvados/shared_pkg/common/nto/misc/bin-x86_64/set_hostname  /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.2.3.06C/bin/set_hostname
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCun01463_COPY_SCP_Wokring_EFR/calvados/shared_pkg/common/time_of_day/bin-x86_64/timezone_config  /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.2.3.06C/bin/timezone_config
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCun01463_COPY_SCP_Wokring_EFR/calvados/shared_pkg/common/nto/misc/bin-x86_64/copy_command  /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.2.3.06C/bin/copy_command
+
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CLOCK_ISSUE/infra/rdsfs/src/rdsfs_show_tech_support /opt/cisco/XR/packages/iosxr-infra.rp_lc-6.0.0.17I/bin/rdsfs_show_tech_support
+
+chvrf -o scp /misc/disk1/showtech/showtech-rdsfs_svr* ajbharad@173.39.51.147:/nobackup/ajbharad/SHOWTECH_SAMPLE
+
+
+chvrf -o scp /harddisk:/showtech/showtech-rdsfs_svr-2015-Sep-01.092728.UTC.tgz ajbharad@173.39.51.147:/nobackup/ajbharad/CSCuv31857_Logs
+chvrf -o scp /disk0:/logs.txt ajbharad@173.39.51.147:/nobackup/ajbharad/RDSFS_23_Char
+
+
+rm -rf /opt/cisco/XR/packages/iosxr-infra.rp_lc-6.0.1.16I/bin/rdsfs_svr
+
+chvrf -0 scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCux85189_XR_Dev/infra/rdsfs/obj-x86_64-linux-spirit/rdsfs_svr /opt/cisco/XR/packages/iosxr-infra.rp_lc-6.0.1.16I/bin/rdsfs_svr
+chvrf -0 scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCux76668_XR_Dev/infra/rdsfs/obj-x86_64-linux-spirit/rdsfs_test /opt/cisco/XR/packages/iosxr-infra.rp_lc-6.0.1.14I/bin/rdsfs_test
+
+chvrf -0 scp ajbharad@173.39.51.147:/nobackup/ajbharad/iosclock /opt/cisco/XR/packages/iosxr-infra.rp_lc-6.0.1.17I/bin/iosclock
+
+chvrf -o scp racachar@173.39.48.55:/nobackup/racachar/523/calvados/shared_pkg/common/nto/misc/bin-x86_64/copy_command  /opt/cisco/calvados/packages/ncs4k-sysadmin-shared.all-5.2.3.13P/bin/copy_command
+
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCun01463_COPY_SCP_Wokring_EFR/calvados/shared_pkg/common/nto/misc/bin-x86_64/shell_util    /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.2.3.06C/bin/shell_util 
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCun01463_COPY_SCP_Wokring_EFR/calvados/shared_pkg/common/nto/misc/bin-x86_64/run    /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.2.3.06C/bin/run
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCun01463_COPY_SCP_Wokring_EFR/calvados/shared_pkg/common/nto/misc/src/shell_util.ccl /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.2.3.06C/1.0.0/etc/confd/schema/
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCun01463_COPY_SCP_Wokring_EFR/shellutil/linux/obj-x86_64-linux-spirit/run /opt/cisco/XR/packages/iosxr-infra.rp-5.2.3.06C/sbin/run
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCun01463_COPY_SCP_Wokring_EFR/calvados/shared_pkg/common/nto/misc/bin-x86_64/shell_util    /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.2.3.06C/bin/shell_util 
+
+chvrf -o scp ./rdsf_svr* ajbharad@173.39.51.147:/nobackup/ajbharad/
+chvrf -o scp ./rdsf_svr* ajbharad@173.39.51.147:/nobackup/ajbharad/
+
+rm -rf /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.rp-5.3.1.27I/bin/timezone_config;
+chvrf 0 scp ajbharad@10.83.108.129:/nobackup/ajbharad/Timezone/calvados/shared_pkg/common/time_of_day/bin-x86_64/timezone_config /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.rp-5.3.1.27I/bin/timezone_config
+chvrf 0 scp ajbharad@10.83.108.129:/nobackup/ajbharad/Timezone/.smu/deliverables/ncs6k-sysadmin-5.3.1.27I.CSCut22689.smu /misc/disk1
+
+rm -rf /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.rp-5.3.1.27I/bin/timezone_config;chvrf 0 scp ajbharad@10.83.108.129:/nobackup/ajbharad/Timezone/calvados/shared_pkg/common/time_of_day/bin-x86_64/timezone_config /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.rp-5.3.1.27I/bin/timezone_config
+
+
+chvrf 0 scp ajbharad@10.83.108.129:/nobackup/ajbharad/Timezone/calvados/shared_pkg/common/time_of_day/bin-x86_64/timezone_config /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.rp-5.3.1.27I/bin/timezone_notify
+
+chvrf 0 scp ajbharad@10.104.99.155:/nobackup/ajbharad/TimeZone/timezone_config /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.rp-5.3.1.27I/bin/timezone_config
+chvrf 0 scp ajbharad@173.39.51.147:/nobackup/ajbharad/TimeZone/timezone_config /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.rp-5.3.1.27I/bin/timezone_config
+
+chvrf -o scp racachar@173.39.48.55:/nobackup/racachar/524/calvados/shared_pkg/common/nto/misc/bin-x86_64/shell_util    /opt/cisco/calvados/packages/ncs4k-sysadmin-shared.all-5.2.4.05I/bin/shell_util
+chvrf -o scp ajbharad@173.39.48.55:/nobackup/racachar/524/calvados/shared_pkg/common/nto/misc/bin-x86_64/shell_util    /opt/cisco/calvados/packages/ncs4k-sysadmin-shared.all-5.2.4.05I/bin/shell_util
+
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/Bundle_Manager_Issue/infra/rdsfs/obj-x86_64-linux-spirit/rdsfs_svr /opt/cisco/XR/packages/iosxr-infra.rp_lc-5.3.3.23I/bin/rdsfs_svr
+
+[host:~]$ scp root@172.29.124.15:/tmp/hello .
+[sysadmin-vm:0_RP0:~]$chvrf 0 scp root@10.0.2.2:/tmp/hello .
+
+
+
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/FILE_COPY/parser/obj-x86_64-linux-spirit/save /opt/cisco/XR/packages/iosxr-infra.rp-5.2.3.06C/sbin/save
+
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCuo25028_Hostname_Cal/calvados/shared_pkg/common/time_of_day/bin-x86_64/timezone_config /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.rp-5.2.1.21I/bin/timezone_config
+rm /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.rp-5.2.1.21I/bin/timezone_config
+
+chvrf -o scp  /misc/disk1/run_2428.by.11.20140901-213520.AAA:0_RP0.59e2b.core.gz ajbharad@10.83.108.129:/nobackup/ajbharad/
+
+
+    
+chvrf -o scp ajbharad@10.83.108.129:/nobackup/ajbharad/Audit_Logging/calvados/shared_pkg/common/nto/misc/bin-x86_64/run /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.2.3.06C/bin/run
+chvrf -o scp ajbharad@10.83.108.129:/nobackup/ajbharad/For_Committing/calvados/shared_pkg/common/nto/misc/bin-x86_64/shell_util /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.2.1.26I/bin/shell_util
+    
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCur80679_Bitmask/shellutil/linux/obj-x86_64-linux-spirit/filesys_cli_linux /opt/cisco/XR/packages/iosxr-infra.rp-5.2.3.10C/sbin/filesys_cli
+
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/Test/a.out .
+
+
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/Commit_CSCuq42209_DIR/calvados/shared_pkg/common/nto/misc/bin-x86_64/shell_util /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.2.1.32I/bin/shell_util
+
+chvrf -o scp /harddisk:/showtech/showtech-rdsfs_svr-2016-Mar-11.133327.UTC.tgz ajbharad@173.39.51.147:/nobackup/ajbharad/Sample_Rdsfs_Showtech/
+
+chvrf -o scp ajbharad@173.39.51.147://auto/tftp-ott-users1/ajbharad/TFTP/filesys_cli_linux /opt/cisco/XR/packages/iosxr-infra.rp-5.2.2.15I/sbin/filesys_cli
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/File-Redirection/parser/obj-x86_64-linux-spirit/save /opt/cisco/XR/packages/iosxr-infra.rp-5.2.1.25I/sbin/save
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/File-Redirection/shellutil/linux/obj-x86_64-linux-spirit/run_utility /opt/cisco/XR/packages/iosxr-infra.rp-5.2.1.25I/sbin/run_utility
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/File-Redirection/shellutil/obj-x86_64-linux-spirit/lr_shellutil.parser /pkg/parser/lr_shellutil.parser
+                                                      
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCuo25028_Hostname_Cal/calvados/shared_pkg/common/nto/misc/bin-x86_64/set_hostname /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.2.1.21I/bin/
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/Timeout_Final/calvados/shared_pkg/common/nto/misc/bin-x86_64/shell_util/calvados/shared_pkg/common/nto/misc/bin-x86_64/shell_util /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.2.1.14M/bin/
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCuo25028_Hostname_Cal/calvados/shared_pkg/common/nto/misc/src/set_hostname.ccl /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.2.1.14M/1.0.0/etc/confd/schema/
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCuo25028_Hostname_Cal/calvados/shared_pkg/common/nto/misc/src/set_hostname.fxs /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.2.1.21I/confd/etc/confd/schema/
+
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCtz70901-Show_dll/calvados/shared_pkg/common/nto/misc/src/show_dll.ccl /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.0.1.12I/1.0.0/etc/confd/schema/
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CopyCommand/calvados/shared_pkg/common/nto/misc/src/copy_command.ccl    /opt/cisco/calvados/packages/panini-shared.all-5.0.0.38C/1.0.0/etc/confd/schema/
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCtz70901-Show_dll/calvados/shared_pkg/common/nto/misc/bin-x86_64/show_dll /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.0.1.12I/bin/
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCtz70901-Show_dll/calvados/shared_pkg/common/time_of_day/bin-x86_64/timezone_config
+
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCul06197_File_Redirection/shellutil/linux/obj-x86_64-linux-spirit/filesys_cli_linux /opt/cisco/XR/packages/iosxr-infra.rp-5.2.1.25I/sbin/filesys_cli
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCul06197_File_Redirection/shellutil/linux/obj-x86_64-linux-spirit/run_utility /opt/cisco/XR/packages/iosxr-infra.rp-5.2.1.25I/sbin/run_utility
+
+chvrf -o scp ajbharad@10.83.108.129:/nobackup/ajbharad/Logging/calvados/shared_pkg/common/nto/misc/bin-x86_64/run .
+chvrf -o scp ajbharad@10.83.108.129:/nobackup/ajbharad/run .
+
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/Audit_logging/calvados/shared_pkg/common/nto/misc/bin-x86_64/shell_util /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.2.1.26I/bin/shell_util
+
+chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/CSCun01463_COPY_SCP/calvados/shared_pkg/common/nto/misc/src/copy_command.ccl /opt/cisco/calvados/packages/ncs6k-sysadmin-shared.all-5.2.3.06C/1.0.0/etc/confd/schema/copy_command.ccl
+
+date; chvrf -o scp ajbharad@173.39.51.147:/nobackup/ajbharad/Test/a.out . ;./a.out
+
+copy tftp://202.153.144.25/auto/tftp-blr-users1/ajbharad/pm.cli ./pm.cli
+copy pm.cli tftp://202.153.144.25/auto/tftp-blr-users1/ajbharad/pm.cli
+
+rm -rf zzz_diff; rm -rf zzz_temp; acme diff > zzz_diff ; grep "Index" -i zzz_diff | awk '{print $2}' > zzz_temp; acme revert -file zzz_temp ;
+
+rm -rf /dev/shmem/ltrace/lwm_ltrace/*
+clear logging 
+lw_show_ltrace -j 399 > latest_lwm_logs
+scp /auto/eng_smu_archive1/5.1.1/asr9k/CSCun81835-140430094612/deliverables/asr9k-px-5.1.1.CSCun81835-0.0.16.i.pie bgl-ads-1745:/auto/tftp-blr-users1/ajbharad
+copy tftp://202.153.144.25/auto/tftp-blr-users1/ajbharad/asr9k-px-5.1.1.CSCun81835-0.0.16.i.pie .
+install add asr9k-px-5.1.1.CSCun81835-0.0.16.i.pie
+  
+telnet 10.76.239.15 2019
+redundancy switchover   [CTRL-C]
+telnet 10.76.239.15 2009
+admin
+config-register 0x0
+reload location all
+boot tftp://202.153.144.25/auto/tftp-blr-users1/ajbharad/HFR_SMU/hfr-mini-px.vm-5.1.4
+boot tftp://202.153.144.25/auto/tftp-blr-users1/ajbharad/asr9k-mini-px.vm
+boot tftp://202.153.144.26/auto/tftp-blr-users1/ajbharad/asr9k-mini-px.vm-5.3.3
+boot tftp://202.153.144.25/auto/tftp-blr-users1/ajbharad/asr9k-mini-px.vm
+boot tftp://172.18.75.111/auto/tftp-vista-rtp/golden_config/vignesh/ajey/asr9k-mini-px.vm
+boot tftp://9.3.19.6/auto/tftp-blr-users1/ajbharad/asr9k-mini-px.vm
+boot tftp://172.18.75.111/auto/tftp-vista-rtp/golden_config/badpadma/Ajey/asr9k-mini-px.vm
+boot tftp://202.153.144.25/auto/tftp-blr-users1/ajbharad/asr9k-mini-px.vm-4.3.4
+boot tftp://202.153.144.25/auto/tftp-blr-users1/ajbharad/asr9k-mini-px.vm-5.3.2.16I.SIT_IMAGE
+boot tftp://202.153.144.25/auto/tftp-ott-users1/vesrikan/asr9k-mini-px.vm
+
+boot tftp://5.12.12.19/auto/tftp-earms/ajbharad/asr9k-mini-px.vm
+boot tftp://5.12.12.19/auto/tftp-blr-users1/ajbharad/asr9k-mini-px.vm
+
+boot tftp://9.22.22.150/auto/tftp-blr-users1/ajbharad/asr9k-mini-px.vm
+boot tftp://202.153.144.26/auto/tftp-blr-users1/ajbharad/Smu_Test_513_Asr9k_Image/asr9k-mini-px.vm
+boot tftp://202.153.144.25/auto/tftp-blr-users1/ajbharad/513_SMU/asr9k-mini-px.vm
+boot tftp://202.153.144.24/auto/tftp-blr-users2/vishagu2/asr9k-mini-px.vm
+boot tftp://202.153.144.26/auto/tftp-blr-users2/vishagu2/asr9k-mini-px.vm
+boot tftp://10.105.33.135/auto/tftp-blr-users1/ajbharad/asr9k-mini-px.vm
+telnet 10.76.239.15 2019
+confreg 0x2
+reset ( After 2009 boots up )
+
+ 
+ACTIVE 
+rommon B3 > sync
+rommon B4 > TURBOBOOT=on,format,disk0:
+rommon B5 > sync
+rommon B6 > i
+boot tftp://202.153.144.25/auto/tftp-blr-users1/ajbharad/asr9k-mini-px.vm
+
+ALTERNATIVE
+reload location all force
+set
+confreg 0x2
+sync
+
+
+top -b | grep "confd_helper"
+kill $( top -b | grep "confd_helper" | awk '{print $1}' )                                                                                     
+ls -l /opt/cisco/calvados/packages/panini-shared.all-5.0.0.38C/1.0.0/etc/confd/schema/copy_command.ccl
+
+df -hP | grep -vE '(none|Filesys|mnt|install|rootfs|common)' | sed -e 's/\/misc\/config/config:/g' -e 's/\/misc\/disk1/harddisk:/g' -e 's/\/misc\/scratch/disk0:/g' -e 's/\/var\/log/log:/g' -e 's/\//rootfs:/g' | awk '{printf "'"$FORMAT"'",$6,$2,$3,$5,$4}'
+
+
+
+SANITY STEPS:
+    acme nw -lu cal-501.lu      # To pull calvados lineup
+    acme patch -i <patch file>  # To patch code
+    ./calvados/build/make-lib/xrmk clean;./calvados/build/make-lib/xrmk prepare;./calvados/build/make-lib/xrmk all;/auto/cats3/build_vspirit/183/patch_calvados.sh; # To create iso file    
+    ./calvados/build/make-lib/xrmk sdk  # Make Calvados SDK
+    /auto/calvados/tools/build_panini_r501.sh <Absolute Path to new XR Folder> <Absolute Path to Calvados Folder>
+    
+    
+mkdir <Calvados Folder>     # Create folder for pulling latest calvados lineup
+cd <Calvados Folder>        
+acme nw -lineup  cal-r50x        # Pull Latest Calvados lineup
+acme patch -i ../CSCui26148.txt     #Patch Your changes
+./calvados/build/make-lib/xrmk clean;./calvados/build/make-lib/xrmk prepare;./calvados/build/make-lib/xrmk all;/auto/cats3/build_vspirit/new/195/patch_calvados.sh;     # This will create kvm-install-xboard.iso which can be used for testing.
+./calvados/build/make-lib/xrmk ncs6k-sdk    # This is used to build ncs6k-sysadmin-x86_64-sdk.tgz
+cd ..
+/auto/calvados/tools/build_panini_r501.sh <Absolute Path to new XR Folder> <Absolute Path to Calvados Folder>
+cd /auto/tftp-ott-users1/ajbharad/CSCum14983
+cp <Absolute Path to new XR Folder>/img-ncs6k/ncs6k-mpls.pkg .
+cp <Absolute Path to new XR Folder>/img-ncs6k/ncs6k-mini-x.iso .
+http://wwwin-xrpi.cisco.com/sanity/smoke.cgi
+
+
+
+
+Try:
+    ./calvados/build/make-lib/xrmk ncs6k-sdk; cd .. ; /auto/calvados/tools/build_panini_r501.sh /nobackup/ajbharad/SANITY /nobackup/ajbharad/CSCul61994/; cd /auto/tftp-ott-users1/ajbharad/CSCuj99648; cp /nobackup/ajbharad/SANITY/img-ncs6k/ncs6k-mpls.pkg .; cp /nobackup/ajbharad/SANITY/img-ncs6k/ncs6k-mini-x.iso .
+    ./calvados/build/make-lib/xrmk clean;./calvados/build/make-lib/xrmk prepare;./calvados/build/make-lib/xrmk all;/auto/cats3/build_vspirit/new/195/patch_calvados.sh;./calvados/build/make-lib/xrmk ncs6k-sdk;cd .. ; /auto/calvados/tools/build_panini_r501.sh /nobackup/ajbharad/ForSanity /nobackup/ajbharad/CSCum14983
+
+    
+    rm -rf ForCommiting/ ; mkdir ForCommiting/; cd ForCommiting/; acme nw -lu scapa-twig; acme patch -i ../Complete_DIFFS; date ; time /auto/iox/bin/xr_bld -plat ncs6k -mini ; date ; time /auto/iox/bin/xr_bld -plat ncs4k  ; date ; time /auto/iox/bin/xr_bld -plat asr9k-px ; time ljam -j8 -sPROJECT=router > ljam_results 2>&1 ; time /auto/xrut/xrut-gold/sanity/smoke-test.py > smoke_results 2>&1 ;time ljam -j8 -sPROJECT=router.jam regressions > regression_test 2>&1
+    rm -rf ForCommiting/ ;     mkdir ForCommiting/;     cd ForCommiting/;     acme nw -lu scapa-twig;     acme patch -i ../Complete_DIFFS;     date ; time /auto/iox/bin/xr_bld -plat ncs6k -mini ;     date ; time /auto/iox/bin/xr_bld -plat ncs4k  ;     date ; time /auto/iox/bin/xr_bld -plat asr9k-px ;     date ; time ljam -j8 -sPROJECT=router > ljam_results 2>&1 ;     date ; time /auto/xrut/xrut-gold/sanity/smoke-test.py > smoke_results 2>&1 ;    date ; time ljam -j8 -sPROJECT=router.jam regressions > regression_test 2>&1;
+
+    rm -rf ForCommiting/ ; 
+    mkdir ForCommiting/; 
+    cd ForCommiting/; 
+    acme nw -lu scapa-twig; 
+    acme patch -i ../Complete_DIFFS; 
+    date ; time /auto/iox/bin/xr_bld -plat ncs6k -mini ; 
+    date ; time /auto/iox/bin/xr_bld -plat ncs4k  ; 
+    date ; time /auto/iox/bin/xr_bld -plat asr9k-px ; 
+    date ; time ljam -j8 -sPROJECT=router > ljam_results 2>&1 ; 
+    date ; time /auto/xrut/xrut-gold/sanity/smoke-test.py > smoke_results 2>&1 ;
+    date ; time ljam -j8 -sPROJECT=router.jam regressions > regression_test 2>&1;
+    
+    
+Commit Steps : 
+        Get the changes done.
+        Compile it.
+        Simulate it.
+        Get the UT logs.
+        Attach the UT logs.
+        Get the diff.
+        Attach the diff and Raise the PRRQ.
+        Send the image for PI Smoke.
+        Close the PRRQ.
+        
+        
+        TCR Approval Steps.
+        Link : http://pi-web.cisco.com/pims-home/cgi-bin/pims_nav.cgi?Option=TCRReq
+        commit criteria link: http://wikicentral.cisco.com/display/PROJECT/501+commit+criteria
+
+Commit Criteria at: http://wikicentral.cisco.com/display/PROJECT/MC+Lineup+Commit+Criteria 
+
+Please answer below questions. 
+
+(1) UT done with panini image with both XR and calvados. [Y/N] Y
+(2) PRRQ approved and closed. [Y/N] Y
+(3) Single Chassis Calvados-smoke test Attach results to ddts. Y
+(4) Ping and data path verification on MC Hardware , based on code changes [Y/N] N
+(5) Attach UT enclosure to ddts showing Mandatory UT cases [Y/N]Y 
+Mandatory UT cases in commit criteria page above. 
+
+(6) Run SAT-2 vspirit runid and result. This is currently at discretion of the Engineer. Encouraged to be run if you suspect even a minor difference on sim v/s hardware.
+Doesn`t require SAT-2 vspirit run, because the changes are in os/util and the changes are tested in simulation environment.        
+        
+UT and IT needs to be done with a ncs6k mini (+mpls pie) image from 'r50x' lineup. 
+You can use the following script to build the image : /auto/calvados/tools/build_panini_r501.sh 
+Please answer the following : 
+
+1) Have you run the build command 'xrmk all sdk' and does it build without any errors? : [y/n]y 
+2) Have you built a ncs6k image with your code changes? : [y/n] y 
+a) What is the EFR from which you pulled the cal-r50x WS? : EFR-00000259070
+b) What is the EFR from which you pulled the 'r50x' WS? : EFR-00000259060
+
+3) Have you done UT with a ncs6k image for your code changes? : [y/n] y 
+a) What platform did you test your code changes on? : [Sim/HW/Both] Sim
+b) are the testcases and logs attached to the DDTS? : [y/n] y
+c) Do your code changes have behavioral differences on HW vs Sim? : [y/n] n
+d) If yes, then have you tested on both HW and Simulation? : [y/n]- 
+
+4) Have you run pi-smoke script on a ncs6k mini+pie image? : [y/n] y
+a) do you get all pass ( attach results to the DDTS )? : [y/n] y
+
+5) Do your code changes have any behavioral differences from the baseline that will impact any of the sanity scripts such as, vSAT, HSAT, calvados sanity and the smoke test ? : [y/n] n
+Examples of such changes could be, but, not limited to : 
+a) changes to prompts presented at the CLI 
+b) CLI syntax changes 
+c) Log messages printed on the console
+d) Ordering change in the bring up sequence of the nodes or the VMs If your changes affect the sanity scripts, which sanities have you run ? : 
+
+6) Have you done Static Analysis on your change set and have you fixed the SA warnings for your changeset ? : [y/n] y
+
+7) Have you submitted your changes for Code Reivew and has at least one person reviewed the changes and signed off in PRRQ? [Y/N] y
+
+8) (a) Does your changeset include changes to XML ? [y/n] n
+(b) If you are modifying XML, have you tested FPD : [y/n] n
+Provide details of the test done. Do not checkin the SDK tarball in 'calvados/release' directory, unless you are officially going to release the SDK.
+
+Commit Steps:
+    Go to the workspace directory.
+    acme fc - To check edited files by component wise
+    cstatic_cs - To chech whether warning and errors.
+                    If present change it or make it intentional
+    acme precommit
+    acme commit
+    
+    Behavior - N
+    Move to R-State
+    
+    	RequiredIs this Bug about breakage to functionality that previously worked : NO
+        Does this bug exist in released code? : N
+        Is this a development escape : N
+        What is the most reasonable earliest activity where this bug could have been caught : Not-a-Dev-Escape
+        Where was the Bug Injected : Code/Implementation
+        
+        
